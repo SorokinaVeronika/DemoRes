@@ -8,12 +8,15 @@ using System.Windows.Forms;
 
 namespace DemoRes
 {
-    class Functional
+    public class Functional
     {
         SqlConnection _connection;
         string _connStr;
         ListBox _listRecipe;
         Populate _populate;
+
+        public Functional()
+        { }
 
         public Functional(string connStr, ListBox listRecipe)
         {

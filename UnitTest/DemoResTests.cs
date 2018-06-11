@@ -19,7 +19,12 @@ namespace UnitTest
         public void TestAddToRecipe()
         {
             string item = "banana";
+            string instr = "some inst";
             string expected = "banana";
+
+            functional.InsertRecipe(instr, item);
+
+
 
            // functional.AddToRecipe();
         }
