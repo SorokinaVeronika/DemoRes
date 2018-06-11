@@ -48,6 +48,9 @@
             this.updateName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.addIngredient = new System.Windows.Forms.Label();
+            this.addIngredients = new System.Windows.Forms.TextBox();
+            this.AddIngred = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.resDataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,7 +96,7 @@
             // 
             // btnAddRecipe
             // 
-            this.btnAddRecipe.Location = new System.Drawing.Point(602, 125);
+            this.btnAddRecipe.Location = new System.Drawing.Point(633, 149);
             this.btnAddRecipe.Name = "btnAddRecipe";
             this.btnAddRecipe.Size = new System.Drawing.Size(75, 23);
             this.btnAddRecipe.TabIndex = 4;
@@ -103,7 +106,7 @@
             // 
             // RecipeName
             // 
-            this.RecipeName.Location = new System.Drawing.Point(405, 39);
+            this.RecipeName.Location = new System.Drawing.Point(436, 63);
             this.RecipeName.Name = "RecipeName";
             this.RecipeName.Size = new System.Drawing.Size(272, 20);
             this.RecipeName.TabIndex = 5;
@@ -121,6 +124,7 @@
             // listAllIngredients
             // 
             this.listAllIngredients.FormattingEnabled = true;
+            this.listAllIngredients.HorizontalScrollbar = true;
             this.listAllIngredients.Location = new System.Drawing.Point(436, 236);
             this.listAllIngredients.Name = "listAllIngredients";
             this.listAllIngredients.Size = new System.Drawing.Size(120, 95);
@@ -165,7 +169,7 @@
             // lbNewRecipeAndUpdate
             // 
             this.lbNewRecipeAndUpdate.AutoSize = true;
-            this.lbNewRecipeAndUpdate.Location = new System.Drawing.Point(402, 13);
+            this.lbNewRecipeAndUpdate.Location = new System.Drawing.Point(433, 37);
             this.lbNewRecipeAndUpdate.Name = "lbNewRecipeAndUpdate";
             this.lbNewRecipeAndUpdate.Size = new System.Drawing.Size(118, 13);
             this.lbNewRecipeAndUpdate.TabIndex = 13;
@@ -174,7 +178,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(402, 72);
+            this.label1.Location = new System.Drawing.Point(433, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 14;
@@ -182,7 +186,7 @@
             // 
             // addInstruction
             // 
-            this.addInstruction.Location = new System.Drawing.Point(405, 99);
+            this.addInstruction.Location = new System.Drawing.Point(436, 123);
             this.addInstruction.Multiline = true;
             this.addInstruction.Name = "addInstruction";
             this.addInstruction.Size = new System.Drawing.Size(272, 20);
@@ -223,11 +227,40 @@
             this.label3.TabIndex = 21;
             this.label3.Text = "and enter a new name:";
             // 
+            // addIngredient
+            // 
+            this.addIngredient.AutoSize = true;
+            this.addIngredient.Location = new System.Drawing.Point(620, 210);
+            this.addIngredient.Name = "addIngredient";
+            this.addIngredient.Size = new System.Drawing.Size(99, 13);
+            this.addIngredient.TabIndex = 22;
+            this.addIngredient.Text = "Add new Ingredient";
+            // 
+            // addIngredients
+            // 
+            this.addIngredients.Location = new System.Drawing.Point(623, 235);
+            this.addIngredients.Name = "addIngredients";
+            this.addIngredients.Size = new System.Drawing.Size(143, 20);
+            this.addIngredients.TabIndex = 23;
+            // 
+            // AddIngred
+            // 
+            this.AddIngred.Location = new System.Drawing.Point(655, 262);
+            this.AddIngred.Name = "AddIngred";
+            this.AddIngred.Size = new System.Drawing.Size(111, 23);
+            this.AddIngred.TabIndex = 24;
+            this.AddIngred.Text = "Add Ingredient";
+            this.AddIngred.UseVisualStyleBackColor = true;
+            this.AddIngred.Click += new System.EventHandler(this.AddIngred_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 384);
+            this.Controls.Add(this.AddIngred);
+            this.Controls.Add(this.addIngredients);
+            this.Controls.Add(this.addIngredient);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.updateName);
@@ -278,6 +311,9 @@
         private System.Windows.Forms.TextBox updateName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label addIngredient;
+        private System.Windows.Forms.TextBox addIngredients;
+        private System.Windows.Forms.Button AddIngred;
     }
 }
 

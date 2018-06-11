@@ -7,10 +7,18 @@ namespace DemoRes
     class Populate
     {
 
-        public void PopulateRecipes(SqlConnection connection, string connStr, ListBox list )
+        SqlConnection _connection;
+        string _connStr;
+
+        public Populate(string connStr)
         {
-            using (connection = new SqlConnection(connStr))
-            using (SqlDataAdapter adapter = new SqlDataAdapter("Select * from Recipe", connStr))
+            _connStr = connStr;
+        }
+
+        public void PopulateRecipes(ListBox list )
+        {
+            using (_connection = new SqlConnection(_connStr))
+            using (SqlDataAdapter adapter = new SqlDataAdapter("Select * from Recipe", _connStr))
             {
                 DataTable recipeTable = new DataTable();
                 adapter.Fill(recipeTable);
@@ -23,10 +31,10 @@ namespace DemoRes
 
         //------------------------------------------------------------------------------------
 
-        public void PopulateAllIngredients(SqlConnection connection, string connStr, ListBox list)
+        public void PopulateAllIngredients(ListBox list)
         {
-            using (connection = new SqlConnection(connStr))
-            using (SqlDataAdapter adapter = new SqlDataAdapter("Select * from Ingredient", connection))
+            using (_connection = new SqlConnection(_connStr))
+            using (SqlDataAdapter adapter = new SqlDataAdapter("Select * from Ingredient", _connection))
             {
                 DataTable ingredientTable = new DataTable();
                 adapter.Fill(ingredientTable);
@@ -39,14 +47,14 @@ namespace DemoRes
 
         //--------------------------------------------------------------------------------------
 
-        public void PopulateIgredients(SqlConnection connection, string connStr, ListBox list, ListBox listRecipes)
+        public void PopulateIgredients(ListBox list, ListBox listRecipes)
         {
             string query = "SELECT a.Name FROM Ingredient a " +
                 "INNER JOIN Recipe_Ingredient b ON a.Id = b.Id_Ingredient " +
                 "WHERE b.Id_Recipe = @Id_Recipe";
 
-            using (connection = new SqlConnection(connStr))
-            using (SqlCommand command = new SqlCommand(query, connection))
+            using (_connection = new SqlConnection(_connStr))
+            using (SqlCommand command = new SqlCommand(query, _connection))
             using (SqlDataAdapter adapter = new SqlDataAdapter(command))
             {
                 command.Parameters.AddWithValue("@Id_Recipe", listRecipes.SelectedValue);
@@ -62,12 +70,12 @@ namespace DemoRes
 
         //-------------------------------------------------------------------------------------
 
-        public void PopulateInstructions(SqlConnection connection, string connStr, ListBox list, ListBox listRecipes)
+        public void PopulateInstructions(ListBox list, ListBox listRecipes)
         {
             string query = "SELECT Instructions FROM Recipe WHERE Id = @Id_Recipe";
 
-            using (connection = new SqlConnection(connStr))
-            using (SqlCommand command = new SqlCommand(query, connection))
+            using (_connection = new SqlConnection(_connStr))
+            using (SqlCommand command = new SqlCommand(query, _connection))
             using (SqlDataAdapter adapter = new SqlDataAdapter(command))
             {
                 command.Parameters.AddWithValue("@Id_Recipe", listRecipes.SelectedValue);
