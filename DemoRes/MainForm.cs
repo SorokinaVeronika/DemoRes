@@ -69,6 +69,8 @@ namespace DemoRes
 
         }
 
+
+
         private void AddIngred_Click(object sender, EventArgs e)
         {
             functional.InsertIngredient(addIngredients);
